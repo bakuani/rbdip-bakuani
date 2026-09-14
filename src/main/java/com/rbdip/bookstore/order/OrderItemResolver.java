@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
-/** Resolves requested product identifiers to the product data used by an order. */
 @Component
 public class OrderItemResolver {
 

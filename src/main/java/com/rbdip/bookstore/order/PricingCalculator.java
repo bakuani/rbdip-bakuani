@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 
-/** Calculates an order total by applying the existing discounts in sequence. */
 @Component
 public class PricingCalculator {
 

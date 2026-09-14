@@ -2,7 +2,6 @@ package com.rbdip.bookstore.order;
 
 import org.springframework.stereotype.Component;
 
-/** Validates data supplied by a customer when an order is placed. */
 @Component
 public class OrderRequestValidator {
 

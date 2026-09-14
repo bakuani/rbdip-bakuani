@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-/** Sends the order confirmation through the transport configured for the application. */
 @Component
 public class OrderConfirmationSender {
 
