@@ -1,3 +1,7 @@
+LOCK TABLE customers IN ACCESS EXCLUSIVE MODE;
+LOCK TABLE orders IN ACCESS EXCLUSIVE MODE;
+LOCK TABLE order_items IN ACCESS EXCLUSIVE MODE;
+
 DROP TRIGGER orders_customer_sync ON orders;
 DROP TRIGGER order_items_product_sync ON order_items;
 DROP TRIGGER customers_name_sync ON customers;
