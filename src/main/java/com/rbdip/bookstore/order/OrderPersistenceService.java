@@ -21,10 +21,12 @@ public class OrderPersistenceService {
     }
 
     public Order save(CreateOrderRequest request, List<ResolvedOrderItem> items) {
-        Customer customer = customerRepository.findByFullNameAndAddressAndPhone(
-                        request.customerFullName(), request.customerAddress(), request.customerPhone())
-                .orElseGet(() -> customerRepository.save(new Customer(
-                        request.customerFullName(), request.customerAddress(), request.customerPhone())));
+        Customer requestedCustomer = new Customer(
+                request.customerFullName(), request.customerAddress(), request.customerPhone());
+        Customer customer = customerRepository.findByFirstNameAndLastNameAndAddressAndPhone(
+                        requestedCustomer.getFirstName(), requestedCustomer.getLastName(),
+                        request.customerAddress(), request.customerPhone())
+                .orElseGet(() -> customerRepository.save(requestedCustomer));
         Order order = orderRepository.save(new Order(customer, NEW_ORDER_STATUS));
         for (ResolvedOrderItem item : items) {
             orderItemRepository.save(new OrderItem(order.getId(), item.product(), item.quantity()));
